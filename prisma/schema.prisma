@@ -1,0 +1,97 @@
+// 数据结构定义文件 schema.prisma
+// 用于 SQLite 数据库，支持用户信息、身份绑定、账户资产、股票持仓
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//
+// 🧍 用户主表 - User
+// 每个注册用户一条，用于存储用户基本信息（头像/昵称），同时挂接资产与身份绑定
+//
+model User {
+  id        String   @id @default(cuid())       // 用户唯一 ID（自动生成）
+  nickname  String                              // 昵称
+  avatar    String?                             // 头像 URL，可为空
+  createdAt DateTime @default(now())            // 创建时间
+  updatedAt DateTime @updatedAt                 // 最近更新时间
+  bindings  AuthBinding[]                       // 第三方平台绑定记录（微信、抖音、手机号）
+  accounts  Account[]                           // 用户资产账户列表（通常一条）
+  holdings  Holding[]                           // 当前持仓记录（多只股票）
+  trades Trade[]                                // 用户的所有交易记录
+}
+
+//
+// 🔐 第三方登录与身份绑定表 - AuthBinding
+// 记录用户绑定的外部身份：微信/抖音/手机号/同花顺/雪球等，支持埋点/转化跟踪
+//
+model AuthBinding {
+  id          String   @id @default(cuid())     // 主键
+  userId      String                             // 外键：用户 ID
+  provider    String                             // 平台类型：wechat / douyin / phone / tonghuashun ...
+  externalId  String                             // 平台用户唯一标识（如 openid / 手机号 / 账号）
+  bindingType String   @default("auth")          // 用途：auth（用于登录）/ intent（意向）/ converted（已转化）
+  metadata    Json?                              // 附加信息（渠道来源等）
+  createdAt   DateTime @default(now())           // 绑定时间
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([provider, externalId])               // 每个平台用户只能绑定一次
+}
+
+//
+// 💰 用户账户资产表 - Account
+// 每个用户一个账户，记录当前余额与总资产（含持仓），后续用于排行榜与分析
+//
+model Account {
+  id         String   @id @default(cuid())       // 主键
+  userId     String                              // 外键：关联用户
+  balanceCNY Float                               // 人民币余额（默认）
+  balanceUSD Float                               // 美元余额
+  balanceEUR Float                               // 欧元余额
+  totalValue Float                               // 总资产（含持仓价值）
+  updatedAt  DateTime @updatedAt                 // 更新时间
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+//
+// 📦 用户持仓记录表 - Holding
+// 记录每位用户当前持有的每只股票（代码、股数、买入均价），用于计算盈亏与展示
+//
+model Holding {
+  id        String   @id @default(cuid())        // 主键
+  userId    String                               // 外键：用户 ID
+  code      String                               // 股票代码（如 sh600519）
+  name      String                               // 股票名称（如 贵州茅台）
+  amount    Int                                  // 持有股数
+  price     Float                                // 买入均价
+  createdAt DateTime @default(now())             // 创建时间
+  updatedAt DateTime @updatedAt                  // 更新时间
+
+  user User @relation(fields: [userId], references: [id])
+  @@unique([userId, code])                       // 每人每股票最多一条持仓记录
+}
+
+//
+// 📦 用户交易记录表 - Trade
+// 记录用户每一笔交易操作：买入 / 卖出 / 划转等
+//
+model Trade {
+  id        String   @id @default(cuid())          // 主键
+  userId    String                                 // 外键：用户 ID
+  code      String                                 // 股票代码
+  name      String                                 // 股票名称
+  type      String                                 // 类型：buy / sell / transfer
+  price     Float                                  // 单价
+  amount    Int                                    // 数量（买入为正，卖出为负）
+  fee       Float?                                 // 手续费（可选）
+  createdAt DateTime @default(now())               // 创建时间
+
+  user User @relation(fields: [userId], references: [id])
+}
