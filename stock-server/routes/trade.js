@@ -7,14 +7,14 @@ const prisma = new PrismaClient()
 
 // 买入
 router.post('/buy', async (req, res) => {
-  const { userId, code, name, price, amount } = req.body
+  const { userId, code, name, amount } = req.body
 
-  if (!userId || !code || !price || !amount) {
+  if (!userId || !code || !amount) {
     return res.status(400).json({ error: '参数缺失' })
   }
 
   try {
-    const result = await buy(userId, code, name, price, amount)
+    const result = await buy(userId, code, name, amount)
     res.json({ success: true, data: result })
   } catch (e) {
     res.status(500).json({ error: e.message })
@@ -23,12 +23,12 @@ router.post('/buy', async (req, res) => {
 
 // 卖出
 router.post('/sell', async (req, res) => {
-    const { userId, code, name, price, amount } = req.body
-    if (!userId || !code || !price || !amount) {
+    const { userId, code, name, amount } = req.body
+    if (!userId || !code || !amount) {
       return res.status(400).json({ error: '参数缺失' })
     }
     try {
-      const result = await sell(userId, code, name, price, amount)
+      const result = await sell(userId, code, name, amount)
       res.json({ success: true, data: result })
     } catch (e) {
       res.status(500).json({ error: e.message })

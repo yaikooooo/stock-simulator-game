@@ -12,21 +12,24 @@ const { getSnapshotByCode } = require('../stockCache')
 /**
  * 用户买入某支股票
  */
-async function buy(userId, code, name, price, amount) {
+async function buy(userId, code, name, amount) {
   // 替换原本直接使用 price 的逻辑：
   const snapshot = getSnapshotByCode(code)
   if (!snapshot) throw new Error('无法获取当前股票价格')
   const price = snapshot.price
 
-  const cost = price * amount
+  const raw = price * amount
+  const fee = Number((raw * config.feeRate).toFixed(2))
+  const netIncome = raw + fee
+
 
   const account = await prisma.account.findFirst({ where: { userId } })
-  if (!account || account.balanceCNY < cost) {
+  if (!account || account.balanceCNY < netIncome) {
     throw new Error('余额不足')
   }
 
   await addOrUpdateHolding(userId, code, name, price, amount)
-  await decreaseBalance(userId, cost)
+  await decreaseBalance(userId, netIncome)
 
   const trade = await prisma.trade.create({
     data: {
@@ -36,16 +39,17 @@ async function buy(userId, code, name, price, amount) {
       type: 'BUY',
       price,
       amount,
+      fee,
     }
   })
-
+  console.log(`[持仓] ${userId} ➕ 买入 ${code}：原数量 ${holding?.amount || 0}，新买入 ${amount}，新均价 ${newAvgPrice.toFixed(2)}`)
   return trade
 }
 
 /**
  * 用户卖出某支股票
  */
-async function sell(userId, code, name, price, amount) {
+async function sell(userId, code, name, amount) {
   const holding = await prisma.holding.findUnique({
     where: { userId_code: { userId, code } }
   })
@@ -59,7 +63,10 @@ async function sell(userId, code, name, price, amount) {
   if (!snapshot) throw new Error('无法获取当前股票价格')
   const price = snapshot.price
 
-  const totalValue = price * amount * config.feeRate
+  const raw = price * amount
+  const fee = Number((raw * config.feeRate).toFixed(2))
+  const netIncome = raw - fee
+
   const remaining = holding.amount - amount
 
   if (remaining === 0) {
@@ -76,7 +83,7 @@ async function sell(userId, code, name, price, amount) {
     })
   }
 
-  await increaseBalance(userId, totalValue)
+  await increaseBalance(userId, netIncome)
 
   const trade = await prisma.trade.create({
     data: {
@@ -86,9 +93,21 @@ async function sell(userId, code, name, price, amount) {
       type: 'SELL',
       price,
       amount,
+      fee,
     }
   })
 
+  console.log('===== 🧾 卖出调试信息 =====')
+  console.log(`📌 股票：${code} - ${name}`)
+  console.log(`📈 卖出价格：${price}`)
+  console.log(`💰 原始持仓均价：${holding.price}`)
+  console.log(`📊 本次交易股数：${amount}`)
+  console.log(`🧾 总金额（未扣费）：${raw}`)
+  console.log(`💸 手续费：${fee}`)
+  console.log(`💳 到账金额：${netIncome}`)
+  console.log(`📈 盈亏/每股：${(price - holding.price).toFixed(2)}`)
+  console.log(`📊 本次总盈利：${((price - holding.price) * amount).toFixed(2)}`)
+  console.log('=============================')
   return trade
 }
 

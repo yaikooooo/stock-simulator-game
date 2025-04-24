@@ -17,7 +17,7 @@ const fs = require('fs')
 const path = require('path')
 const axios = require('axios')
 const iconv = require('iconv-lite')
-const cache = require('../cache/stockCache.json')
+const cache = require('../cache/stock_cache.json')
 /**
  * 判断一个版本时间戳是否在 10 分钟以内
  * @param {string} version 形如 "2025-04-23-14:20"
