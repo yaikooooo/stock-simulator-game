@@ -1,41 +1,41 @@
 {
-  "version": "2025-04-24-10:10",
+  "version": "2025-04-25-06:30",
   "data": [
     {
       "code": "sz000876",
       "name": "新希望",
-      "price": 9.86,
-      "change": "-0.02"
+      "price": 9.78,
+      "change": "-0.08"
     },
     {
       "code": "sz002234",
       "name": "民和股份",
-      "price": 8.78,
-      "change": "-0.02"
+      "price": 8.8,
+      "change": "0.02"
     },
     {
       "code": "sz002299",
       "name": "圣农发展",
-      "price": 16.74,
-      "change": "0.20"
+      "price": 16.57,
+      "change": "-0.17"
     },
     {
       "code": "sz300498",
       "name": "温氏股份",
-      "price": 16.87,
-      "change": "-0.14"
+      "price": 16.89,
+      "change": "0.02"
     },
     {
       "code": "sh600251",
       "name": "冠农股份",
-      "price": 7.36,
-      "change": "0.03"
+      "price": 7.45,
+      "change": "0.09"
     },
     {
       "code": "sz000713",
       "name": "丰乐种业",
-      "price": 7.53,
-      "change": "-0.10"
+      "price": 7.52,
+      "change": "-0.01"
     }
   ]
 }

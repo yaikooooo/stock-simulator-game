@@ -17,6 +17,9 @@ startUpdateJob()              // 每10分钟拉取一次最新数据
 app.use('/api/stocks', require('./routes/stocks'))
 app.use('/api/trade', require('./routes/trade'))
 app.use('/api/account', require('./routes/account'))
+app.use('/api/auth', require('./routes/auth.login'))
+app.use('/api/auth', require('./routes/auth.bind-phone'))
+
 
 // 启动服务
 app.listen(3000, () => {

@@ -1,47 +1,47 @@
 {
-  "version": "2025-04-24-10:10",
+  "version": "2025-04-25-06:30",
   "data": [
     {
       "code": "sz000768",
       "name": "中航西飞",
-      "price": 23.28,
-      "change": "-0.22"
+      "price": 23.29,
+      "change": "0.01"
     },
     {
       "code": "sz002025",
       "name": "航天电器",
-      "price": 52.03,
-      "change": "-0.85"
+      "price": 53,
+      "change": "0.97"
     },
     {
       "code": "sh600760",
       "name": "中航沈飞",
-      "price": 42.68,
-      "change": "-0.37"
+      "price": 42.69,
+      "change": "0.01"
     },
     {
       "code": "sz002985",
       "name": "北摩高科",
-      "price": 26.86,
-      "change": "-0.05"
+      "price": 26.62,
+      "change": "-0.24"
     },
     {
       "code": "sh600967",
       "name": "内蒙一机",
-      "price": 11.06,
-      "change": "-0.24"
+      "price": 11.01,
+      "change": "-0.05"
     },
     {
       "code": "sz300034",
       "name": "钢研高纳",
       "price": 15.11,
-      "change": "-0.68"
+      "change": "0.00"
     },
     {
       "code": "sz002179",
       "name": "中航光电",
-      "price": 40.67,
-      "change": "-0.23"
+      "price": 40.8,
+      "change": "0.13"
     }
   ]
 }

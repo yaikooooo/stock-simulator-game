@@ -16,6 +16,7 @@ datasource db {
 //
 model User {
   id        String   @id @default(cuid())       // 用户唯一 ID（自动生成）
+  uniqueId  String   @unique                    // 主键(单独保存8位ID，供外部展示)
   nickname  String                              // 昵称
   avatar    String?                             // 头像 URL，可为空
   createdAt DateTime @default(now())            // 创建时间
@@ -31,10 +32,11 @@ model User {
 // 记录用户绑定的外部身份：微信/抖音/手机号/同花顺/雪球等，支持埋点/转化跟踪
 //
 model AuthBinding {
-  id          String   @id @default(cuid())     // 主键
-  userId      String                             // 外键：用户 ID
+  id          String   @id @default(cuid())      // （Prisma自动生成的ID）
+  userId      String                             // 主键(单独保存8位ID，供外部展示)
   provider    String                             // 平台类型：wechat / douyin / phone / tonghuashun ...
-  externalId  String                             // 平台用户唯一标识（如 openid / 手机号 / 账号）
+  externalId  String                             // 平台用户唯一标识（openid）
+  phone       String                             // 手机号
   bindingType String   @default("auth")          // 用途：auth（用于登录）/ intent（意向）/ converted（已转化）
   metadata    Json?                              // 附加信息（渠道来源等）
   createdAt   DateTime @default(now())           // 绑定时间
@@ -49,8 +51,8 @@ model AuthBinding {
 // 每个用户一个账户，记录当前余额与总资产（含持仓），后续用于排行榜与分析
 //
 model Account {
-  id         String   @id @default(cuid())       // 主键
-  userId     String                              // 外键：关联用户
+  id         String   @id @default(cuid())       // （Prisma自动生成的ID）
+  userId     String                              // 主键(单独保存8位ID，供外部展示)
   balanceCNY Float                               // 人民币余额（默认）
   balanceUSD Float                               // 美元余额
   balanceEUR Float                               // 欧元余额
@@ -65,8 +67,8 @@ model Account {
 // 记录每位用户当前持有的每只股票（代码、股数、买入均价），用于计算盈亏与展示
 //
 model Holding {
-  id        String   @id @default(cuid())        // 主键
-  userId    String                               // 外键：用户 ID
+  id        String   @id @default(cuid())        // （Prisma自动生成的ID）
+  userId    String                               // 主键(单独保存8位ID，供外部展示)
   code      String                               // 股票代码（如 sh600519）
   name      String                               // 股票名称（如 贵州茅台）
   amount    Int                                  // 持有股数
@@ -83,8 +85,8 @@ model Holding {
 // 记录用户每一笔交易操作：买入 / 卖出 / 划转等
 //
 model Trade {
-  id        String   @id @default(cuid())          // 主键
-  userId    String                                 // 外键：用户 ID
+  id        String   @id @default(cuid())          // （Prisma自动生成的ID）
+  userId    String                                 // 主键(单独保存8位ID，供外部展示)
   code      String                                 // 股票代码
   name      String                                 // 股票名称
   type      String                                 // 类型：buy / sell / transfer

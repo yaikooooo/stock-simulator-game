@@ -1,17 +1,17 @@
 {
-  "version": "2025-04-24-10:10",
+  "version": "2025-04-25-06:30",
   "data": [
     {
       "code": "sh600519",
       "name": "贵州茅台",
-      "price": 1552.25,
-      "change": "0.25"
+      "price": 1552.96,
+      "change": "0.71"
     },
     {
       "code": "sz000858",
       "name": "五粮液",
-      "price": 129.06,
-      "change": "-0.91"
+      "price": 129.19,
+      "change": "0.13"
     },
     {
       "code": "sh000568",
@@ -22,44 +22,44 @@
     {
       "code": "sh600887",
       "name": "伊利股份",
-      "price": 29.14,
-      "change": "0.14"
+      "price": 28.97,
+      "change": "-0.17"
     },
     {
       "code": "sz002714",
       "name": "牧原股份",
-      "price": 40.52,
-      "change": "0.15"
+      "price": 40.19,
+      "change": "-0.33"
     },
     {
       "code": "sz000651",
       "name": "格力电器",
-      "price": 45.4,
-      "change": "0.11"
+      "price": 45.28,
+      "change": "-0.12"
     },
     {
       "code": "sz000333",
       "name": "美的集团",
-      "price": 72.95,
-      "change": "1.10"
+      "price": 72.88,
+      "change": "-0.07"
     },
     {
       "code": "sz002304",
       "name": "洋河股份",
-      "price": 72.37,
-      "change": "-0.37"
+      "price": 72.51,
+      "change": "0.14"
     },
     {
       "code": "sh603288",
       "name": "海天味业",
-      "price": 42.55,
-      "change": "0.73"
+      "price": 42.05,
+      "change": "-0.50"
     },
     {
       "code": "sz002714",
       "name": "牧原股份",
-      "price": 40.52,
-      "change": "0.15"
+      "price": 40.19,
+      "change": "-0.33"
     }
   ]
 }
