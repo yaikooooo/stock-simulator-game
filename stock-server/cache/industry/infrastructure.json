@@ -1,47 +1,47 @@
 {
-  "version": "2025-04-25-06:30",
+  "version": "2025-04-26-18:20",
   "data": [
     {
       "code": "sh601186",
       "name": "中国铁建",
-      "price": 8.02,
-      "change": "-0.03"
+      "price": 8.03,
+      "change": "-0.02"
     },
     {
       "code": "sh601800",
       "name": "中国交建",
-      "price": 9.27,
-      "change": "0.01"
+      "price": 9.28,
+      "change": "0.02"
     },
     {
       "code": "sh601668",
       "name": "中国建筑",
-      "price": 5.51,
-      "change": "-0.01"
+      "price": 5.52,
+      "change": "0.00"
     },
     {
       "code": "sh601390",
       "name": "中国中铁",
-      "price": 5.64,
-      "change": "0.00"
+      "price": 5.65,
+      "change": "0.01"
     },
     {
       "code": "sz002941",
       "name": "新疆交建",
-      "price": 11.35,
-      "change": "0.19"
+      "price": 11.33,
+      "change": "0.17"
     },
     {
       "code": "sh600970",
       "name": "中材国际",
-      "price": 9.18,
-      "change": "-0.08"
+      "price": 9.17,
+      "change": "-0.09"
     },
     {
       "code": "sh600133",
       "name": "东湖高新",
-      "price": 9.04,
-      "change": "0.13"
+      "price": 9.03,
+      "change": "0.12"
     }
   ]
 }

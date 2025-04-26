@@ -11,22 +11,30 @@ function generateUniqueId(length = 8) {
 // ✅ 注册接口：/api/auth/register
 router.post('/register', async (req, res) => {
   const { externalId } = req.body
-
+  console.log(`📊 externalId：${externalId}`)
   if (!externalId) {
     return res.status(400).json({ error: '缺少 externalId（如 openId）' })
   }
 
   // 检查是否已注册
-  const existing = await prisma.authBinding.findFirst({
+  const existing = await prisma.authBinding.findUnique({
     where: {
-      externalId,
-      provider: 'open'
+      externalId_provider: {
+        externalId,
+        provider: 'register'
+      }
     }
   })
-
+  
   if (existing) {
-    return res.json({ success: true, userId: existing.userId })
+    return res.status(200).json({
+      success: false,
+      code: 'ALREADY_REGISTERED',  // ✅ 自定义错误码
+      message: '该 openId 已注册',
+      userId: existing.userId
+    })
   }
+  
 
   // 生成唯一ID
   let uniqueId
@@ -39,29 +47,29 @@ router.post('/register', async (req, res) => {
     }
   }
 
-  // 创建用户记录
-  await prisma.user.create({
+  // ✅ 创建用户，并获取返回对象
+  const user = await prisma.user.create({
     data: {
       uniqueId,
       nickname: externalId,
-      avatar: ''
+      avatar:''
     }
   })
-
   // 创建账户
   await prisma.account.create({
     data: {
-      userId: uniqueId,
+      userId: user.id,
       balanceCNY: 100000,
       balanceUSD: 0,
-      balanceEUR: 0
+      balanceEUR: 0,
+      totalValue: 100000
     }
   })
   // 创建绑定记录（记录 openId）
   await prisma.authBinding.create({
     data: {
-      userId: uniqueId,
-      provider: 'open',
+      userId: user.id,
+      provider: 'register',
       externalId,
       phone: '',
       bindingType: 'auth',
@@ -69,7 +77,7 @@ router.post('/register', async (req, res) => {
     }
   })
 
-  res.json({ success: true, userId: uniqueId })
+  res.json({ success: true, uniqueId: uniqueId , userId: user.id})
 })
 
 module.exports = router

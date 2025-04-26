@@ -16,7 +16,7 @@ datasource db {
 //
 model User {
   id        String   @id @default(cuid())       // 用户唯一 ID（自动生成）
-  uniqueId  String   @unique                    // 主键(单独保存8位ID，供外部展示)
+  uniqueId  String   @unique @default("TEMP-PLACEHOLDER") // 主键(单独保存8位ID，供外部展示)
   nickname  String                              // 昵称
   avatar    String?                             // 头像 URL，可为空
   createdAt DateTime @default(now())            // 创建时间
@@ -33,7 +33,7 @@ model User {
 //
 model AuthBinding {
   id          String   @id @default(cuid())      // （Prisma自动生成的ID）
-  userId      String                             // 主键(单独保存8位ID，供外部展示)
+  userId      String                             // 外键：用户 ID
   provider    String                             // 平台类型：wechat / douyin / phone / tonghuashun ...
   externalId  String                             // 平台用户唯一标识（openid）
   phone       String                             // 手机号
@@ -43,7 +43,7 @@ model AuthBinding {
 
   user User @relation(fields: [userId], references: [id])
 
-  @@unique([provider, externalId])               // 每个平台用户只能绑定一次
+  @@unique([provider, externalId], name: "externalId_provider")   // 每个平台用户只能绑定一次
 }
 
 //
@@ -52,7 +52,7 @@ model AuthBinding {
 //
 model Account {
   id         String   @id @default(cuid())       // （Prisma自动生成的ID）
-  userId     String                              // 主键(单独保存8位ID，供外部展示)
+  userId     String                              // 外键：用户 ID
   balanceCNY Float                               // 人民币余额（默认）
   balanceUSD Float                               // 美元余额
   balanceEUR Float                               // 欧元余额
@@ -68,7 +68,7 @@ model Account {
 //
 model Holding {
   id        String   @id @default(cuid())        // （Prisma自动生成的ID）
-  userId    String                               // 主键(单独保存8位ID，供外部展示)
+  userId    String                               // 外键：用户 ID
   code      String                               // 股票代码（如 sh600519）
   name      String                               // 股票名称（如 贵州茅台）
   amount    Int                                  // 持有股数
@@ -86,7 +86,7 @@ model Holding {
 //
 model Trade {
   id        String   @id @default(cuid())          // （Prisma自动生成的ID）
-  userId    String                                 // 主键(单独保存8位ID，供外部展示)
+  userId    String                                 // 外键：用户 ID
   code      String                                 // 股票代码
   name      String                                 // 股票名称
   type      String                                 // 类型：buy / sell / transfer

@@ -20,15 +20,18 @@ async function buy(userId, code, name, amount) {
 
   const raw = price * amount
   const fee = Number((raw * config.feeRate).toFixed(2))
-  const netIncome = raw + fee
+  const netIncome = Number((raw + fee).toFixed(2))
+  console.log('[调试] netIncome =', netIncome, typeof netIncome)
 
 
   const account = await prisma.account.findFirst({ where: { userId } })
+  console.log('🧾 账户数据:', account)
+  
   if (!account || account.balanceCNY < netIncome) {
     throw new Error('余额不足')
   }
 
-  await addOrUpdateHolding(userId, code, name, price, amount)
+  const holding = await addOrUpdateHolding(userId, code, name, price, amount)
   await decreaseBalance(userId, netIncome)
 
   const trade = await prisma.trade.create({
@@ -42,8 +45,14 @@ async function buy(userId, code, name, amount) {
       fee,
     }
   })
-  console.log(`[持仓] ${userId} ➕ 买入 ${code}：原数量 ${holding?.amount || 0}，新买入 ${amount}，新均价 ${newAvgPrice.toFixed(2)}`)
-  return trade
+
+  if (holding && typeof holding.amount === 'number' && typeof holding.price === 'number') {
+    console.log(`[持仓] ${userId} ➕ 买入 ${code}：原数量 ${holding.amount}，新买入 ${amount}，新均价 ${holding.price.toFixed(2)}`)
+  } else {
+    console.log(`[持仓] ${userId} ➕ 买入 ${code}：成功，未能获取完整持仓信息`)
+  }
+
+    return trade
 }
 
 /**
@@ -65,7 +74,7 @@ async function sell(userId, code, name, amount) {
 
   const raw = price * amount
   const fee = Number((raw * config.feeRate).toFixed(2))
-  const netIncome = raw - fee
+  const netIncome = Number((raw - fee).toFixed(2))
 
   const remaining = holding.amount - amount
 

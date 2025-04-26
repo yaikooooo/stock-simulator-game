@@ -1,35 +1,35 @@
 {
-  "version": "2025-04-25-06:30",
+  "version": "2025-04-26-18:20",
   "data": [
     {
       "code": "sh600048",
       "name": "保利发展",
-      "price": 8.72,
-      "change": "-0.14"
+      "price": 8.76,
+      "change": "-0.10"
     },
     {
       "code": "sh600383",
       "name": "金地集团",
-      "price": 4.79,
-      "change": "-0.19"
+      "price": 4.76,
+      "change": "-0.22"
     },
     {
       "code": "sz000002",
       "name": "万科A",
-      "price": 7.07,
-      "change": "-0.01"
+      "price": 7.05,
+      "change": "-0.03"
     },
     {
       "code": "sh601155",
       "name": "新城控股",
-      "price": 13.77,
-      "change": "-0.23"
+      "price": 13.68,
+      "change": "-0.32"
     },
     {
       "code": "sz001914",
       "name": "招商积余",
-      "price": 12.49,
-      "change": "-0.19"
+      "price": 12.45,
+      "change": "-0.23"
     },
     {
       "code": "sz000671",
@@ -40,8 +40,8 @@
     {
       "code": "sh600340",
       "name": "华夏幸福",
-      "price": 2.27,
-      "change": "-0.01"
+      "price": 2.26,
+      "change": "-0.02"
     }
   ]
 }

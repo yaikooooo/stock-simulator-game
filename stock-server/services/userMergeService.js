@@ -10,18 +10,24 @@ async function mergeAccounts(primaryId, secondaryId) {
   // 1. 合并账户余额
   const pAcc = await prisma.account.findFirst({ where: { userId: primaryId } })
   const sAcc = await prisma.account.findFirst({ where: { userId: secondaryId } })
-  if (sAcc) {
+
+  console.log('[合并检测] primaryId:', primaryId)
+  console.log('[合并检测] primaryAcc:', pAcc)
+  console.log('[合并检测] secondaryId:', secondaryId)
+  console.log('[合并检测] secondaryAcc:', sAcc)
+
+  if (pAcc && sAcc) {
     await prisma.account.update({
-      where: { userId: primaryId },
+      where: { id: pAcc.id },
       data: {
         balanceCNY: pAcc.balanceCNY + sAcc.balanceCNY,
         balanceUSD: pAcc.balanceUSD + sAcc.balanceUSD,
-        balanceEUR: pAcc.balanceEUR + sAcc.balanceEUR
+        balanceEUR: pAcc.balanceEUR + sAcc.balanceEUR,
+        totalValue: pAcc.totalValue + sAcc.totalValue   // ✅ 应合并总资产
       }
     })
-    await prisma.account.delete({ where: { userId: secondaryId } })
+    await prisma.account.delete({ where: { id: sAcc.id } })
   }
-
   // 2. 合并持仓
   const sHoldings = await prisma.holding.findMany({ where: { userId: secondaryId } })
   for (const h of sHoldings) {

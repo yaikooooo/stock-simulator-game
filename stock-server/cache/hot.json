@@ -1,106 +1,76 @@
 {
-  "version": "2025-04-25-06:30",
+  "version": "2025-04-26-18:20",
   "data": [
     {
       "code": "sz002594",
       "name": "比亚迪",
-      "price": 371.16,
-      "change": "5.16"
-    },
-    {
-      "code": "sh688111",
-      "name": "金山办公",
-      "price": 285.02,
-      "change": "2.50"
-    },
-    {
-      "code": "sh603986",
-      "name": "兆易创新",
-      "price": 112.67,
-      "change": "1.51"
-    },
-    {
-      "code": "sz002025",
-      "name": "航天电器",
-      "price": 53,
-      "change": "0.97"
-    },
-    {
-      "code": "sh603259",
-      "name": "药明康德",
-      "price": 57.3,
-      "change": "0.88"
-    },
-    {
-      "code": "sh600519",
-      "name": "贵州茅台",
-      "price": 1552.96,
-      "change": "0.71"
-    },
-    {
-      "code": "sz300033",
-      "name": "同花顺",
-      "price": 261,
-      "change": "0.25"
-    },
-    {
-      "code": "sz002941",
-      "name": "新疆交建",
-      "price": 11.35,
-      "change": "0.19"
-    },
-    {
-      "code": "sh601619",
-      "name": "嘉泽新能",
-      "price": 3.76,
-      "change": "0.15"
-    },
-    {
-      "code": "sz002304",
-      "name": "洋河股份",
-      "price": 72.51,
-      "change": "0.14"
-    },
-    {
-      "code": "sz000858",
-      "name": "五 粮 液",
-      "price": 129.19,
-      "change": "0.13"
-    },
-    {
-      "code": "sh000568",
-      "name": "\";",
-      "price": 0,
-      "change": "NaN"
+      "price": 370.83,
+      "change": "4.83"
     },
     {
       "code": "sz300308",
       "name": "中际旭创",
-      "price": 85.29,
-      "change": "3.96"
+      "price": 85.27,
+      "change": "3.94"
     },
     {
-      "code": "sh600104",
-      "name": "上汽集团",
-      "price": 15.73,
-      "change": "0.20"
+      "code": "sh688111",
+      "name": "金山办公",
+      "price": 284.84,
+      "change": "2.32"
+    },
+    {
+      "code": "sh603986",
+      "name": "兆易创新",
+      "price": 112.63,
+      "change": "1.47"
+    },
+    {
+      "code": "sz002025",
+      "name": "航天电器",
+      "price": 53.1,
+      "change": "1.07"
+    },
+    {
+      "code": "sh603259",
+      "name": "药明康德",
+      "price": 57.36,
+      "change": "0.94"
     },
     {
       "code": "sh600030",
       "name": "中信证券",
-      "price": 25.19,
+      "price": 25.2,
+      "change": "0.20"
+    },
+    {
+      "code": "sh600104",
+      "name": "上汽集团",
+      "price": 15.72,
       "change": "0.19"
     },
     {
-      "code": "sh688012",
-      "name": "中微公司",
-      "price": 187.54,
-      "change": "0.19"
+      "code": "sh601688",
+      "name": "华泰证券",
+      "price": 16.05,
+      "change": "0.17"
     },
     {
-      "code": "sh601318",
-      "name": "中国平安",
-      "price": 51.38,
+      "code": "sz002941",
+      "name": "新疆交建",
+      "price": 11.33,
+      "change": "0.17"
+    },
+    {
+      "code": "sh601619",
+      "name": "嘉泽新能",
+      "price": 3.78,
+      "change": "0.17"
+    },
+    {
+      "code": "sh600760",
+      "name": "中航沈飞",
+      "price": 42.84,
       "change": "0.16"
     },
     {
@@ -110,16 +80,46 @@
       "change": "0.15"
     },
     {
-      "code": "sh601688",
-      "name": "华泰证券",
-      "price": 16.02,
-      "change": "0.14"
+      "code": "sh601600",
+      "name": "中国铝业",
+      "price": 6.61,
+      "change": "0.13"
+    },
+    {
+      "code": "sz002080",
+      "name": "中材科技",
+      "price": 14.36,
+      "change": "0.13"
     },
     {
       "code": "sh600019",
       "name": "宝钢股份",
-      "price": 6.66,
-      "change": "0.14"
+      "price": 6.64,
+      "change": "0.12"
+    },
+    {
+      "code": "sh600133",
+      "name": "东湖高新",
+      "price": 9.03,
+      "change": "0.12"
+    },
+    {
+      "code": "sh601211",
+      "name": "国泰海通",
+      "price": 17.21,
+      "change": "0.11"
+    },
+    {
+      "code": "sh601318",
+      "name": "中国平安",
+      "price": 51.33,
+      "change": "0.11"
+    },
+    {
+      "code": "sh688012",
+      "name": "中微公司",
+      "price": 187.46,
+      "change": "0.11"
     }
   ]
 }

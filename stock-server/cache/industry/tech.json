@@ -1,5 +1,5 @@
 {
-  "version": "2025-04-25-06:30",
+  "version": "2025-04-26-18:20",
   "data": [
     {
       "code": "sz002415",
@@ -10,38 +10,38 @@
     {
       "code": "sh688111",
       "name": "金山办公",
-      "price": 285.02,
-      "change": "2.50"
+      "price": 284.84,
+      "change": "2.32"
     },
     {
       "code": "sz300223",
       "name": "北京君正",
-      "price": 65.95,
-      "change": "0.01"
+      "price": 65.8,
+      "change": "-0.14"
     },
     {
       "code": "sh603986",
       "name": "兆易创新",
-      "price": 112.67,
-      "change": "1.51"
+      "price": 112.63,
+      "change": "1.47"
     },
     {
       "code": "sz300782",
       "name": "卓胜微",
-      "price": 75.51,
-      "change": "-2.39"
+      "price": 75.45,
+      "change": "-2.45"
     },
     {
       "code": "sz300308",
       "name": "中际旭创",
-      "price": 85.29,
-      "change": "3.96"
+      "price": 85.27,
+      "change": "3.94"
     },
     {
       "code": "sh688012",
       "name": "中微公司",
-      "price": 187.54,
-      "change": "0.19"
+      "price": 187.46,
+      "change": "0.11"
     },
     {
       "code": "sz002415",
