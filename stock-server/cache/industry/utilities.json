@@ -1,47 +1,47 @@
 {
-  "version": "2025-04-26-19:30",
+  "version": "2025-04-29-10-40",
   "data": [
     {
       "code": "sh600900",
       "name": "长江电力",
-      "price": 29.52,
-      "change": "0.06"
+      "price": 29.42,
+      "change": "-0.30"
     },
     {
       "code": "sh601619",
       "name": "嘉泽新能",
-      "price": 3.78,
-      "change": "0.17"
+      "price": 3.66,
+      "change": "-0.04"
     },
     {
       "code": "sh600795",
       "name": "国电电力",
-      "price": 4.58,
-      "change": "0.04"
+      "price": 4.5,
+      "change": "-0.09"
     },
     {
       "code": "sh600023",
       "name": "浙能电力",
-      "price": 5.81,
-      "change": "0.06"
+      "price": 5.3,
+      "change": "-0.54"
     },
     {
       "code": "sh600008",
       "name": "首创环保",
-      "price": 3.16,
-      "change": "0.03"
+      "price": 3.12,
+      "change": "-0.04"
     },
     {
       "code": "sh600617",
       "name": "国新能源",
-      "price": 2.46,
+      "price": 2.49,
       "change": "0.05"
     },
     {
       "code": "sh600167",
       "name": "联美控股",
-      "price": 5.79,
-      "change": "0.09"
+      "price": 5.72,
+      "change": "-0.12"
     }
   ]
 }

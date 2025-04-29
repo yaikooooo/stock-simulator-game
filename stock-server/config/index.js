@@ -1,16 +1,17 @@
-
 // config/index.js
-// 所有全局参数、常量配置集中管理
+// 为了保持向后兼容，从appConfig中导出相同的结构
+
+const appConfig = require('./appConfig');
 
 module.exports = {
   // 交易相关
-  feeRate: 0.0025,              // 手续费千分比（例如 0.0025 即为 0.25%）
-  defaultCurrency: 'CNY',       // 默认货币（人民币）
+  feeRate: appConfig.trade.feeRate,
+  defaultCurrency: appConfig.trade.defaultCurrency,
 
   // K线默认配置
-  klineDefaultPeriod: '1d',
-  klineDefaultRange: '1y',
+  klineDefaultPeriod: appConfig.kline.defaultPeriod,
+  klineDefaultRange: appConfig.kline.defaultRange,
 
   // 热门榜单配置
-  hotStockLimit: 20,            // 首页推荐最多展示的热门股票数
-}
+  hotStockLimit: appConfig.hotStocks.limit,
+};

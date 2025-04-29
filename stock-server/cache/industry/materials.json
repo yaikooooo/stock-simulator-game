@@ -1,47 +1,47 @@
 {
-  "version": "2025-04-26-19:30",
+  "version": "2025-04-29-10-40",
   "data": [
     {
       "code": "sh600019",
       "name": "宝钢股份",
-      "price": 6.64,
-      "change": "0.12"
+      "price": 6.92,
+      "change": "0.00"
     },
     {
       "code": "sh601600",
       "name": "中国铝业",
-      "price": 6.61,
-      "change": "0.13"
+      "price": 6.43,
+      "change": "-0.05"
     },
     {
       "code": "sh600585",
       "name": "海螺水泥",
-      "price": 24.57,
-      "change": "-0.32"
+      "price": 24.39,
+      "change": "-0.15"
     },
     {
       "code": "sz000825",
       "name": "太钢不锈",
-      "price": 3.4,
-      "change": "0.05"
+      "price": 3.55,
+      "change": "0.01"
     },
     {
       "code": "sz002080",
       "name": "中材科技",
-      "price": 14.36,
-      "change": "0.13"
+      "price": 14.13,
+      "change": "0.05"
     },
     {
       "code": "sz002129",
       "name": "中环股份",
-      "price": 7.79,
-      "change": "0.02"
+      "price": 7.5,
+      "change": "-0.06"
     },
     {
       "code": "sh600873",
       "name": "梅花生物",
-      "price": 10.98,
-      "change": "-0.02"
+      "price": 11.07,
+      "change": "0.04"
     }
   ]
 }

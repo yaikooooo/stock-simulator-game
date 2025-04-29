@@ -1,17 +1,18 @@
 {
-  "version": "2025-04-23-11:41",
+  "version": "2025-04-29-09-13",
   "data": {
-    "code": "sh600519",
+    "code": "SH600519",
     "name": "贵州茅台",
-    "price": 1552,
-    "change": "3.20",
-    "open": 1559,
-    "previousClose": 1548.8,
-    "high": 1559.22,
-    "low": 1545,
-    "volume": 1866876,
-    "amount": 2895468892,
-    "time": "2025-04-23",
-    "news": []
+    "price": 1550,
+    "change": "-1.11",
+    "open": 1551.11,
+    "previousClose": 1551.11,
+    "high": 1552.12,
+    "low": 1550,
+    "volume": 64840,
+    "amount": 0,
+    "time": "2025-04-28 15:00:00",
+    "news": [],
+    "source": "sina_backup"
   }
 }

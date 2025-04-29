@@ -1,125 +1,125 @@
 {
-  "version": "2025-04-26-19:30",
+  "version": "2025-04-29-10-40",
   "data": [
     {
-      "code": "sz002594",
-      "name": "比亚迪",
-      "price": 370.83,
-      "change": "4.83"
-    },
-    {
-      "code": "sz300308",
-      "name": "中际旭创",
-      "price": 85.27,
-      "change": "3.94"
-    },
-    {
-      "code": "sh688111",
-      "name": "金山办公",
-      "price": 284.84,
-      "change": "2.32"
+      "code": "sh603259",
+      "name": "药明康德",
+      "price": 61.41,
+      "change": "3.32"
     },
     {
       "code": "sh603986",
       "name": "兆易创新",
-      "price": 112.63,
-      "change": "1.47"
+      "price": 118.24,
+      "change": "3.04"
     },
     {
-      "code": "sz002025",
-      "name": "航天电器",
-      "price": 53.1,
-      "change": "1.07"
+      "code": "sh603444",
+      "name": "吉比特",
+      "price": 236.1,
+      "change": "2.89"
     },
     {
-      "code": "sh603259",
-      "name": "药明康德",
-      "price": 57.36,
-      "change": "0.94"
+      "code": "sh603288",
+      "name": "海天味业",
+      "price": 42.48,
+      "change": "1.22"
     },
     {
-      "code": "sh600030",
-      "name": "中信证券",
-      "price": 25.2,
+      "code": "sz300033",
+      "name": "同花顺",
+      "price": 257.75,
+      "change": "0.98"
+    },
+    {
+      "code": "sz300347",
+      "name": "泰格医药",
+      "price": 44.58,
+      "change": "0.43"
+    },
+    {
+      "code": "sz300308",
+      "name": "中际旭创",
+      "price": 83.77,
+      "change": "0.38"
+    },
+    {
+      "code": "sz002460",
+      "name": "赣锋锂业",
+      "price": 30.21,
+      "change": "0.24"
+    },
+    {
+      "code": "sz002292",
+      "name": "奥飞娱乐",
+      "price": 8.44,
       "change": "0.20"
     },
     {
-      "code": "sh600104",
-      "name": "上汽集团",
-      "price": 15.72,
-      "change": "0.19"
+      "code": "sz000333",
+      "name": "美的集团",
+      "price": 73.38,
+      "change": "0.15"
     },
     {
-      "code": "sh601688",
-      "name": "华泰证券",
-      "price": 16.05,
-      "change": "0.17"
+      "code": "sz300223",
+      "name": "北京君正",
+      "price": 65.5,
+      "change": "0.15"
     },
     {
       "code": "sz002941",
       "name": "新疆交建",
-      "price": 11.33,
-      "change": "0.17"
+      "price": 11.35,
+      "change": "0.12"
     },
     {
-      "code": "sh601619",
-      "name": "嘉泽新能",
-      "price": 3.78,
-      "change": "0.17"
+      "code": "sz300782",
+      "name": "卓胜微",
+      "price": 72.83,
+      "change": "0.11"
+    },
+    {
+      "code": "sz002985",
+      "name": "北摩高科",
+      "price": 26.53,
+      "change": "0.10"
     },
     {
       "code": "sh600760",
       "name": "中航沈飞",
-      "price": 42.84,
-      "change": "0.16"
+      "price": 42.57,
+      "change": "0.09"
     },
     {
-      "code": "sz300122",
-      "name": "智飞生物",
-      "price": 19.85,
-      "change": "0.15"
-    },
-    {
-      "code": "sh601600",
-      "name": "中国铝业",
+      "code": "sz002343",
+      "name": "慈文传媒",
       "price": 6.61,
-      "change": "0.13"
+      "change": "0.09"
     },
     {
-      "code": "sz002080",
-      "name": "中材科技",
-      "price": 14.36,
-      "change": "0.13"
+      "code": "sz002415",
+      "name": "海康威视",
+      "price": 28.14,
+      "change": "0.08"
     },
     {
-      "code": "sh600019",
-      "name": "宝钢股份",
-      "price": 6.64,
-      "change": "0.12"
+      "code": "sz002415",
+      "name": "海康威视",
+      "price": 28.14,
+      "change": "0.08"
     },
     {
-      "code": "sh600133",
-      "name": "东湖高新",
-      "price": 9.03,
-      "change": "0.12"
+      "code": "sz002007",
+      "name": "华兰生物",
+      "price": 16.45,
+      "change": "0.08"
     },
     {
-      "code": "sh601211",
-      "name": "国泰海通",
-      "price": 17.21,
-      "change": "0.11"
-    },
-    {
-      "code": "sh601318",
-      "name": "中国平安",
-      "price": 51.33,
-      "change": "0.11"
-    },
-    {
-      "code": "sh688012",
-      "name": "中微公司",
-      "price": 187.46,
-      "change": "0.11"
+      "code": "sh601155",
+      "name": "新城控股",
+      "price": 13.21,
+      "change": "0.08"
     }
   ]
 }

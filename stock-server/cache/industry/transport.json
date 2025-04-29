@@ -1,47 +1,47 @@
 {
-  "version": "2025-04-26-19:30",
+  "version": "2025-04-29-10-40",
   "data": [
     {
       "code": "sh601111",
       "name": "中国国航",
-      "price": 7.2,
-      "change": "-0.05"
+      "price": 7.15,
+      "change": "-0.02"
     },
     {
       "code": "sh600029",
       "name": "南方航空",
-      "price": 5.66,
-      "change": "-0.04"
+      "price": 5.65,
+      "change": "0.01"
     },
     {
       "code": "sh601006",
       "name": "大秦铁路",
-      "price": 6.72,
-      "change": "-0.08"
+      "price": 6.77,
+      "change": "0.00"
     },
     {
       "code": "sh600115",
       "name": "东方航空",
-      "price": 3.72,
-      "change": "-0.03"
+      "price": 3.7,
+      "change": "0.00"
     },
     {
       "code": "sz002352",
       "name": "顺丰控股",
-      "price": 43.36,
-      "change": "-0.04"
+      "price": 43.11,
+      "change": "-0.11"
     },
     {
       "code": "sh600190",
       "name": "锦州港",
-      "price": 1.15,
-      "change": "-0.06"
+      "price": 1.04,
+      "change": "-0.05"
     },
     {
       "code": "sz000089",
       "name": "深圳机场",
-      "price": 6.79,
-      "change": "-0.01"
+      "price": 6.84,
+      "change": "0.02"
     }
   ]
 }

@@ -6,10 +6,13 @@ const axios = require('axios')
 const iconv = require('iconv-lite')
 const fs = require('fs')
 const path = require('path')
+const appConfig = require('../config/appConfig')
 
 // 引入缓存写入工具和全行业股票映射表
 const { updateCache } = require('../cache/cacheManager')
 const symbolsAll = require('../config/industry/symbols_all')
+// 引入股票新闻提取器
+const { getStockNews } = require('../services/stockNewsExtractor')
 
 // 将 symbols_all.js 中的股票全部展开成一个大列表（用于统一拉取行情）
 const allStocks = Object.values(symbolsAll).flat()
@@ -43,10 +46,20 @@ async function fetchRealStocks(symbols) {
   }).filter(item => !isNaN(item.price) && item.name !== '未知') // 过滤无效股票
 }
 
-// ⬇️ 生成当前版本号（时间戳）
+// ⬇️ 生成当前版本号（北京时间戳）
 function getVersion() {
   const now = new Date()
-  return now.toISOString().slice(0, 16).replace('T', '-')
+  // 调整为北京时间 (UTC+8)
+  now.setHours(now.getHours() + 8)
+  
+  // 手动格式化为 YYYY-MM-DD-HH-mm 格式
+  const year = now.getUTCFullYear()
+  const month = String(now.getUTCMonth() + 1).padStart(2, '0')
+  const day = String(now.getUTCDate()).padStart(2, '0')
+  const hours = String(now.getUTCHours()).padStart(2, '0')
+  const minutes = String(now.getUTCMinutes()).padStart(2, '0')
+  
+  return `${year}-${month}-${day}-${hours}-${minutes}`
 }
 
 // ⬇️ 按行业拆分数据并写入到 cache/industry/*.json，并加入 version 字段
@@ -77,6 +90,49 @@ function writeHotStocks(data, version) {
   fs.writeFileSync(path.join(__dirname, '../cache/hot.json'), JSON.stringify({ version, data: top }, null, 2))
 }
 
+// ⬇️ 更新热门股票的新闻 - 如果功能已启用
+async function updateStockNews() {
+  if (!appConfig.features.enableNewsFeature) {
+    console.log('[新闻更新] ❌ 新闻功能已禁用，跳过更新');
+    return;
+  }
+  
+  try {
+    // 读取热门股票列表
+    const hotFile = path.join(__dirname, '../cache/hot.json')
+    if (!fs.existsSync(hotFile)) {
+      console.log('[新闻更新] ❓ 热门股票文件不存在，等待下次行情更新后再尝试')
+      return
+    }
+    
+    const hotStocks = JSON.parse(fs.readFileSync(hotFile, 'utf8')).data
+    console.log(`[新闻更新] 🔍 开始获取${hotStocks.length}只热门股票的新闻...`)
+    
+    // 对每只热门股票获取新闻，并添加适当的延迟避免请求过于频繁
+    for (let i = 0; i < hotStocks.length; i++) {
+      const stock = hotStocks[i]
+      try {
+        console.log(`[新闻更新] 📰 正在获取 ${stock.code} ${stock.name} 的新闻 (${i+1}/${hotStocks.length})`)
+        await getStockNews(stock.code, 7, 20) // 获取7天内最多20条新闻
+        
+        // 添加延迟，避免请求过于频繁
+        if (i < hotStocks.length - 1) {
+          const delay = 3000 + Math.random() * 2000
+          console.log(`[新闻更新] ⏱️ 等待${Math.round(delay/1000)}秒后继续下一只股票...`)
+          await new Promise(resolve => setTimeout(resolve, delay))
+        }
+      } catch (error) {
+        console.error(`[新闻更新] ❌ 获取${stock.code}新闻失败: ${error.message}`)
+        // 继续处理下一只股票
+      }
+    }
+    
+    console.log('[新闻更新] ✅ 所有热门股票新闻更新完成')
+  } catch (error) {
+    console.error('[新闻更新] ❌ 更新股票新闻出错:', error.message)
+  }
+}
+
 // ⬇️ 核心更新流程：抓取行情 → 写入全量缓存 → 写入行业分类 → 写入热门榜
 async function updateNow() {
   try {
@@ -92,11 +148,23 @@ async function updateNow() {
   }
 }
 
-// ⬇️ 启动定时任务，每10分钟执行一次行情更新
+// ⬇️ 启动定时任务
 function startUpdateJob() {
-  console.log('[定时器] 🔁 每10分钟拉一次股票行情')
-  cron.schedule('*/10 * * * *', updateNow)
-  updateNow() // 启动时立即拉一次
+  console.log('[定时器] 🔁 每10分钟拉一次股票行情');
+  cron.schedule(appConfig.schedule.stockUpdateInterval, updateNow);
+  updateNow(); // 启动时立即拉一次
+
+  // 根据配置决定是否启用新闻更新定时任务
+  if (appConfig.features.enableNewsScheduledUpdate && appConfig.features.enableNewsFeature) {
+    console.log('[定时器] 🔁 每天午夜12点更新一次热门股票新闻');
+    cron.schedule(appConfig.schedule.newsUpdateCron, updateStockNews);
+    
+    // 启动时也执行一次新闻获取，但延迟30秒等待行情更新完成
+    console.log('[定时器] ⏱️ 30秒后开始首次热门股票新闻更新');
+    setTimeout(updateStockNews, 30000);
+  } else {
+    console.log('[定时器] ❌ 新闻定时更新已禁用');
+  }
 }
 
 module.exports = startUpdateJob

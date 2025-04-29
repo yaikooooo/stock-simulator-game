@@ -97,3 +97,45 @@ model Trade {
 
   user User @relation(fields: [userId], references: [id])
 }
+
+// 买涨买跌游戏订单
+model BattleOrder {
+  id              String      @id @default(uuid())
+  userId          String
+  stockCode       String
+  direction       Direction   // 买涨或买跌
+  betAmount       Float       // 改用Float而不是Decimal
+  startPrice      Float       // 改用Float而不是Decimal
+  holdMinutes     Int         // 持有时间（分钟）
+  settleTime      DateTime    // 预定结算时间
+  endPrice        Float?      // 改用Float而不是Decimal
+  settlementResult Settlement?
+  profitAmount    Float?      // 改用Float而不是Decimal
+  status          OrderStatus @default(pending)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  @@index([userId])
+  @@index([status, settleTime]) // 用于批量查询待结算订单
+  @@map("battle_orders")
+}
+
+// 买涨买跌方向
+enum Direction {
+  buy_up
+  buy_down
+}
+
+// 结算结果
+enum Settlement {
+  win
+  lose
+  draw
+}
+
+// 订单状态
+enum OrderStatus {
+  pending
+  settled
+  canceled
+} 

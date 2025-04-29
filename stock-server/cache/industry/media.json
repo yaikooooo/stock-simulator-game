@@ -1,47 +1,47 @@
 {
-  "version": "2025-04-26-19:30",
+  "version": "2025-04-29-10-40",
   "data": [
     {
       "code": "sz002555",
       "name": "三七互娱",
-      "price": 15.96,
-      "change": "-0.07"
+      "price": 15.91,
+      "change": "0.03"
     },
     {
       "code": "sz300033",
       "name": "同花顺",
-      "price": 260.08,
-      "change": "-0.67"
+      "price": 257.75,
+      "change": "0.98"
     },
     {
       "code": "sz002292",
       "name": "奥飞娱乐",
-      "price": 8.21,
-      "change": "-0.05"
+      "price": 8.44,
+      "change": "0.20"
     },
     {
       "code": "sz002343",
       "name": "慈文传媒",
-      "price": 6.77,
-      "change": "0.08"
+      "price": 6.61,
+      "change": "0.09"
     },
     {
       "code": "sh603444",
       "name": "吉比特",
-      "price": 226.58,
-      "change": "-0.52"
+      "price": 236.1,
+      "change": "2.89"
     },
     {
       "code": "sh600633",
       "name": "浙数文化",
-      "price": 13.12,
-      "change": "0.10"
+      "price": 13.58,
+      "change": "0.05"
     },
     {
       "code": "sz300251",
       "name": "光线传媒",
-      "price": 19.04,
-      "change": "-0.02"
+      "price": 19.01,
+      "change": "0.03"
     }
   ]
 }

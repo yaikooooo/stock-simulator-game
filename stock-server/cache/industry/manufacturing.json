@@ -1,41 +1,41 @@
 {
-  "version": "2025-04-26-19:30",
+  "version": "2025-04-29-10-40",
   "data": [
     {
       "code": "sh600104",
       "name": "上汽集团",
-      "price": 15.72,
-      "change": "0.19"
+      "price": 15.49,
+      "change": "0.00"
     },
     {
       "code": "sz000625",
       "name": "长安汽车",
-      "price": 12.35,
-      "change": "0.05"
+      "price": 12.14,
+      "change": "-0.04"
     },
     {
       "code": "sz002594",
       "name": "比亚迪",
-      "price": 370.83,
-      "change": "4.83"
+      "price": 357.98,
+      "change": "-2.02"
     },
     {
       "code": "sh601766",
       "name": "中国中车",
-      "price": 7.01,
-      "change": "-0.02"
+      "price": 7.06,
+      "change": "0.03"
     },
     {
       "code": "sh600320",
       "name": "振华重工",
-      "price": 4.18,
-      "change": "0.01"
+      "price": 4.22,
+      "change": "0.03"
     },
     {
       "code": "sz002460",
       "name": "赣锋锂业",
-      "price": 30.31,
-      "change": "-0.42"
+      "price": 30.21,
+      "change": "0.24"
     }
   ]
 }

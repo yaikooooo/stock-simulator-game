@@ -1,53 +1,53 @@
 {
-  "version": "2025-04-26-19:30",
+  "version": "2025-04-29-10-40",
   "data": [
     {
       "code": "sz000001",
       "name": "平安银行",
-      "price": 11.01,
-      "change": "-0.02"
+      "price": 10.99,
+      "change": "-0.01"
     },
     {
       "code": "sh600036",
       "name": "招商银行",
-      "price": 42.08,
-      "change": "-0.13"
+      "price": 42.35,
+      "change": "0.00"
     },
     {
       "code": "sh601398",
       "name": "工商银行",
-      "price": 7.21,
+      "price": 7.26,
       "change": "-0.03"
     },
     {
       "code": "sh600030",
       "name": "中信证券",
-      "price": 25.2,
-      "change": "0.20"
+      "price": 25.07,
+      "change": "-0.06"
     },
     {
       "code": "sh601211",
       "name": "国泰君安",
-      "price": 17.21,
-      "change": "0.11"
+      "price": 17.15,
+      "change": "-0.06"
     },
     {
       "code": "sh601688",
       "name": "华泰证券",
-      "price": 16.05,
-      "change": "0.17"
+      "price": 15.89,
+      "change": "-0.05"
     },
     {
       "code": "sh601318",
       "name": "中国平安",
-      "price": 51.33,
-      "change": "0.11"
+      "price": 51.2,
+      "change": "-0.01"
     },
     {
       "code": "sh601628",
       "name": "中国人寿",
-      "price": 36.5,
-      "change": "-0.35"
+      "price": 36.34,
+      "change": "-0.05"
     }
   ]
 }

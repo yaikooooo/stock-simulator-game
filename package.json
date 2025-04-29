@@ -2,7 +2,9 @@
   "dependencies": {
     "@prisma/client": "^6.6.0",
     "cheerio": "^1.0.0",
-    "iconv-lite": "^0.6.3"
+    "iconv-lite": "^0.6.3",
+    "proxy-chain": "^2.5.8",
+    "puppeteer": "^24.7.2"
   },
   "devDependencies": {
     "prisma": "^6.6.0"
